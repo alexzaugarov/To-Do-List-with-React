@@ -6,8 +6,8 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>f6d1f1f1-dc80-4c6a-bdea-7cea4736bcf1</ProjectGuid>
-    <RootNamespace>ToDoList.Web</RootNamespace>
+    <ProjectGuid>85e29074-e76e-450f-a86e-ae988e075f02</ProjectGuid>
+    <RootNamespace>TodoList.WebApi</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>

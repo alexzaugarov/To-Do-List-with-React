@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot --quiet",
+    "build": "webpack -d --config webpack.config.js --colors --display-error-details"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "react-hot-loader": "^1.3.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-middleware": "^1.9.0",
+    "webpack-dev-server": "^1.12.1",
+    "webpack-hot-middleware": "^2.14.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "bootstrap-css": "^3.0.0",
+    "react": "^15.4.1",
+    "react-bootstrap": "^0.30.7",
+    "react-dom": "^15.4.1"
+  }
+}
