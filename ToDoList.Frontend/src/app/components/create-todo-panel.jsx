@@ -1,6 +1,8 @@
 ﻿import React from "react";
+import {postTodo} from "../api";
+import {connect} from "react-redux";
 
-export default class CreateTodoPanel extends React.Component {
+class CreateTodoPanel extends React.Component {
     constructor(props) {
         super(props);
         this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -8,7 +10,11 @@ export default class CreateTodoPanel extends React.Component {
 
     handleKeyDown(e) {
         if (e.key === "Enter") {
-            this.props.onTaskCreated(e.target.value);
+            this.props.dispatch(postTodo({
+                description: e.target.value,
+                isCompleted: false
+            }));
+
             e.target.value = "";
         }
     }
@@ -21,3 +27,5 @@ export default class CreateTodoPanel extends React.Component {
         );
     }
 }
+
+export default connect()(CreateTodoPanel);

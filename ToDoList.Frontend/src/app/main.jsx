@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import store from './store';
+import {Provider} from 'react-redux';
+import TodoListApp from "./TodoListApp.jsx";
+import configureStore from './store';
 
 ReactDOM.render(
-<Provider store={store}>{router}</Provider>,
+    <Provider store={configureStore()}>
+        <TodoListApp />
+    </Provider>,
     document.getElementById('root')
 );
