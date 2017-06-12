@@ -15,12 +15,13 @@ export function loadTodos() {
 }
 
 export function postTodo(todo) {
-    console.log(serialize(todo));
     return dispatch => {
         fetch(API_ENDPOINT, {
-            method: "post",
-            body: serialize(todo),
-            mode: 'cors'
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(todo)
         })
             .then(response => {
                 response.json()
@@ -29,10 +30,4 @@ export function postTodo(todo) {
                     })
             })
     }
-}
-
-function serialize(obj){
-    var data = new FormData();
-    data.append( "json", JSON.stringify( obj ) );
-    return data;
 }
