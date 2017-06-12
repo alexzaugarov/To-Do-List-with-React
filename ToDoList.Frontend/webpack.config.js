@@ -4,7 +4,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     entry: path.join(__dirname, "src", "app", "main.jsx"),
     output: {
-        path: __dirname + "/wwwroot/",
+        path: path.resolve(__dirname, "../ToDoList.WebApi/src/TodoList.WebApi/wwwroot/"),
         filename: "bundle.js"
     },
     devServer: {

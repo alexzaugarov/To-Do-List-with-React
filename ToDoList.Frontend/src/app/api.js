@@ -1,10 +1,10 @@
 import * as actions from "./actions/action-creators.js";
 
-const API_ENDPOINT = "http://localhost:5000/api/todos";
+const API_ENDPOINT = "/api/todos";
 
 export function loadTodos() {
     return dispatch => {
-        fetch(API_ENDPOINT, {mode: 'cors'})
+        fetch(API_ENDPOINT)
             .then(response => {
                 response.json()
                     .then(todoList => {
