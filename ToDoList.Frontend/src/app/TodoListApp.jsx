@@ -1,5 +1,4 @@
 ﻿import React from 'react';
-import {render} from 'react-dom';
 import TaskList from "./components/list-todo.jsx";
 import Header from "./components/create-todo-panel.jsx";
 

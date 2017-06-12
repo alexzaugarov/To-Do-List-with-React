@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using TodoList.WebApi.Models;
 
 namespace TodoList.WebApi.Controllers
@@ -17,7 +16,7 @@ namespace TodoList.WebApi.Controllers
         [HttpGet]
         public IEnumerable<Todo> Get()
         {
-            return Todos.Select(t => t.Value).ToList();
+            return Todos.Select(t => t.Value).ToArray();
         }
 
         // GET api/values/5
@@ -29,13 +28,16 @@ namespace TodoList.WebApi.Controllers
 
         // POST api/values
         [HttpPost]
-        public Todo Post([FromBody]Todo newTodo)
+        public IActionResult Post([FromBody]Todo newTodo)
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
             newTodo.Id = _idSequence++;
 
             Todos.TryAdd(newTodo.Id, newTodo);
 
-            return newTodo;
+            return CreatedAtAction("Get", new { newTodo.Id }, newTodo);
         }
 
         // PUT api/values/5
@@ -55,7 +57,7 @@ namespace TodoList.WebApi.Controllers
         public IActionResult Delete(int id)
         {
             Todo val;
-            if(!Todos.TryRemove(id, out val))
+            if (!Todos.TryRemove(id, out val))
                 return NotFound();
 
             return Ok();
@@ -64,7 +66,7 @@ namespace TodoList.WebApi.Controllers
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, [FromBody]JsonPatchDocument<Todo> patch)
         {
-            if(!Todos.ContainsKey(id))
+            if (!Todos.ContainsKey(id))
                 return NotFound();
 
             var todo = Todos[id];
