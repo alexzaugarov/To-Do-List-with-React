@@ -22,7 +22,7 @@ class CreateTodoPanel extends React.Component {
     render() {
         return (
             <div>
-                <input type="text" placeholder="What needs to be done?" onKeyDown={this.handleKeyDown}/>
+                <input className="form-control" type="text" placeholder="What needs to be done?" onKeyDown={this.handleKeyDown}/>
             </div>
         );
     }

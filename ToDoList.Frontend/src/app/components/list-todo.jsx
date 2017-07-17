@@ -4,18 +4,16 @@ import TodoItem from "./item-todo.jsx"
 import {loadTodos} from "../api.js";
 
 class TodoList extends React.Component {
-    componentDidMount(){
+    componentDidMount() {
         this.props.dispatch(loadTodos());
     }
 
     render() {
-        var items = [];
-
-        this.props.items.forEach(item => {
-            items.push(<TodoItem description={item.description}/>);
-        });
-
-        return <div>{items}</div>;
+        return <div className="row">
+            <ul className="list-unstyled col-md-12">
+                {this.props.items.map(item => <TodoItem key={item.id} id={item.id} description={item.description}/>)}
+            </ul>
+        </div>;
     }
 }
 

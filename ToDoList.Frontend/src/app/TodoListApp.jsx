@@ -6,9 +6,11 @@ export default class TodoListApp extends React.Component {
     render() {
         return (
             <div className="container">
-                <div className="col-md-4 center-block">
-                    <Header/>
-                    <TaskList/>
+                <div className="row">
+                    <div className="col-md-4 center-block">
+                        <Header/>
+                        <TaskList/>
+                    </div>
                 </div>
             </div>
         );
