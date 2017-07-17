@@ -7,13 +7,9 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
         case types.SHOW_ALL:
-            var newState = Object.assign({}, state, {items: action.items});
-            console.log(newState);
-            return newState;
+            return Object.assign({}, state, {items: action.items});
         case types.CREATE_TODO:
-            var newState = Object.assign({}, state, {items: state.items.concat([action.todo])});
-            console.log(newState);
-            return newState;
+            return Object.assign({}, state, {items: state.items.concat([action.todo])});
         case types.DELETE_TODO:
             return Object.assign({}, state, {items: state.items.filter(i => i.id !== action.id)});
         default:
