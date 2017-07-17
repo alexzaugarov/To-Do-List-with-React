@@ -15,7 +15,7 @@ export default function (state = initialState, action) {
             console.log(newState);
             return newState;
         case types.DELETE_TODO:
-            return Object.assign({}, state, {items: state.items.filter(i => i.id != action.todo.id)});
+            return Object.assign({}, state, {items: state.items.filter(i => i.id !== action.id)});
         default:
             return state;
     }

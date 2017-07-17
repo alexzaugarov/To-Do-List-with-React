@@ -31,3 +31,10 @@ export function postTodo(todo) {
             })
     }
 }
+
+export function deleteTodo(id){
+    return dispatch => {
+        fetch(API_ENDPOINT + "/" + id, {method: "DELETE"})
+            .then(() => dispatch(actions.deleteTodo(id)))
+    }
+}
